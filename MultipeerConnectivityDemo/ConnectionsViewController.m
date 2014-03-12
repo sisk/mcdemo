@@ -140,4 +140,13 @@
   - (IBAction)toggleVisibility:(id)sender {
     [_appDelegate.mcManager advertiseSelf:_swVisible.isOn];
   }
+
+  - (IBAction)disconnect:(id)sender {
+    [_appDelegate.mcManager.session disconnect];
+    
+    _txtName.enabled = YES;
+    
+    [_arrConnectedDevices removeAllObjects];
+    [_tblConnectedDevices reloadData];
+  }
 @end
